@@ -1,0 +1,48 @@
+<!Doctype html>
+<html>
+<head>
+    <script src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="lib/animate/animate.css">
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body ng-app="myApp">
+    <section ng-controller="myController" id="main" class="animated fadeIn" >
+            <h1 style="text-align:center" id="mainHeader">A firebase and angular example</h1>
+            <section id="showData" style="width:500px" class="center-block">
+                <h2 >Show data from firebase</h2>
+                    <table id="table" class="table table-hover">
+                        <tr>
+                            <th ng-click="setFilter('name')">Planet</th>
+                            <th ng-click="setFilter('size')">Size(km)</th>
+                            <th ng-click="setFilter('distance')">Distance(million km)</th>
+                        </tr>
+                        <tr ng-repeat="planet in planets">
+                            <td>{{planet.name}}</td>
+                            <td>{{planet.size}}</td>
+                            <td>{{planet.distance}}</td>
+                        </tr>
+                    </table>
+            </section>
+            <section id="sendData" style="width:500px" class="center-block">
+                <h2>Send info to firebase</h2>
+                <form class="form-group">
+                        <label class="control-label" for="parameterValue">Planet name:</label>
+                        <input class="form-control" ng-model="planet" type="text" placeholder="planet name...">
+                        <label class="control-label" for="parameterValue">Planet size:</label>
+                        <input class="form-control" ng-model="size" type="number" placeholder="planets diameter in km...">
+                        <label class="control-label" for="parameterValue">Planet distance from sun:</label>
+                        <div class="input-group">
+                        <input class="form-control" ng-model="distance" type="number" placeholder="distance from the sun in million km...">
+                        <span class="input-group-btn"><button class="btn btn-default btn-success" ng-click="send()">Send!</button></span>
+                    </div>            
+                </form>
+            </section>
+    </section>
+</body>
+</html>
