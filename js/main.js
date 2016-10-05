@@ -13,7 +13,7 @@ app.controller('myController', ['$scope', function($scope){
   var database = firebase.database();
     
  //make a login form later
-  firebase.auth().signInWithEmailAndPassword("hloevi@live.no", "arsenal74485").catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword("","").catch(function(error) {
   // Handle Errors here.
       console.log("Error code: "+error.code);
       console.log("Message: "+error.message);
